@@ -15,7 +15,7 @@ Read `AGENTS.md` if present.
 
 ## Collect the diff
 
-Prefer git (working tree vs `HEAD`, including staged). If the user named a branch, diff that branch against its merge-base with the default base (`main` / `master` / `trunk` / remote `HEAD`). If there is no git, the files edited in this session are the diff.
+Load `engineering-bar` and follow its **Shared procedures** for change scope and verification evidence. Include branch commits, staged and unstaged edits, and relevant untracked files. Pass the recorded scope to every dispatched check.
 
 If the diff is empty, say so and stop.
 
@@ -23,14 +23,15 @@ If the diff is empty, say so and stop.
 
 ### 1. Mechanical checks
 
-Run whatever `AGENTS.md` recorded, in this order, skipping `(unknown)`:
+Discover commands from `AGENTS.md`, manifests, and CI. Apply the shared evidence procedure, including reuse of unchanged evidence; do not silently skip unknown or unexecuted checks:
 
-1. Format (if the repo has a check/fix command)
+1. **Format** check (avoid unrelated rewrites)
 2. **Lint**
 3. **Typecheck**
 4. Focused tests for the changed area, then **Test**
+5. **Build** when compilation, packaging, or generated artifacts can be affected
 
-Record each command and exit status. A failure means **not ready** unless you fix it in this run and re-run the same command.
+Record each command and exit status or the reason it could not run. Use the shared completion rule to decide whether equivalent evidence suffices or the result remains unverified. Fix failures only when authorized; otherwise report them.
 
 ### 2. Secret scan
 
@@ -42,7 +43,7 @@ Walk the rest of `engineering-bar` on the diff. Fails must be fixed or explicitl
 
 ### 4. Acceptance checks
 
-Use the first spec that exists in this conversation or a file the user pointed at:
+Use the agreed task and carry forward its relevant upstream requirements. Do not let an older shape override a newer user instruction. Sources, from the most specific to broader context:
 
 1. `shape-work` acceptance checks
 2. The named `write-dev-tasks` task (Acceptance + Batch done if this change claims the whole batch)
@@ -62,24 +63,25 @@ Load each sibling from `../NAME/SKILL.md`, else `.agents/skills/NAME/SKILL.md`, 
 | Schema, migration, protobuf, OpenAPI, event shape, column drop/rename | `data-change` (check the plan; do not start a new migration unless the user asked) | Expand and contract are not in the same change |
 | UI components, routes, CSS, views, client state | `verify-ui` | New controls have a name, are keyboard-reachable, and are not unreadable; exercise the changed flow, not only a screenshot |
 
-Waivers are explicit: `performance guard skipped: comment-only change`. Silent skips are **not ready**.
+Mark irrelevant passes `not applicable` with a reason. Only user-approved gaps are waivers. Silent skips are **not ready**. Run `data-change` in assessment mode without creating or applying migrations.
 
 ## Verdict
 
 **Ready** only if:
 
-- Every mechanical command that ran exited 0
+- Scope is complete and verification meets the shared completion rule
+- All applicable configured checks passed or have an explicit user waiver
 - Secret scan clean
 - Engineering-bar has no unwaived fails
 - Acceptance checks (if any) pass
 - Every dispatched pass reported pass or an explicit waiver
 
-Otherwise **not ready**, with the failing item first.
+Otherwise **not ready** (failed requirement) or **unverified** (insufficient evidence), with the blocking item first. Never convert missing evidence into a pass.
 
 ## Done
 
 ```markdown
-## Ready to merge: yes | no
+## Ready to merge: yes | no | unverified
 
 - Mechanical: <command + exit status, one per line>
 - Secrets: pass | fail

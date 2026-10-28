@@ -22,7 +22,7 @@ Read `AGENTS.md` if present.
 
 ## Guard
 
-Collect the current diff (working tree vs `HEAD`, or the branch the user named).
+Follow `engineering-bar` **Shared procedures** for scope and evidence, reusing the caller's recorded scope when provided.
 
 Fail the guard if the diff introduces any of these without a matching bound, index, or existing repo pattern that already does the same thing safely:
 
@@ -33,12 +33,12 @@ Fail the guard if the diff introduces any of these without a matching bound, ind
 - Sync work on a request/UI path that this repo usually defers
 - UI layout jump from images/embeds/fonts with no reserved size
 
-If none apply, **pass** and list what you checked. Do not suggest micro-optimizations (memoization, extra indexes, caches) unless the diff already created the problem.
+If scope or evidence is incomplete, report **unverified**. Otherwise, if none apply, **pass** and list what you checked. Do not suggest micro-optimizations (memoization, extra indexes, caches) unless the diff already created the problem.
 
 Output:
 
 ```markdown
-## Performance guard: pass | fail
+## Performance guard: pass | fail | unverified
 - Checked: …
 - Fails: <file:line + why, or none>
 ```

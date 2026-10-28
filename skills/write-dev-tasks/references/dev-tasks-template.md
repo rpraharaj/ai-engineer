@@ -31,7 +31,7 @@ Do in this order. Do not start N+1 until N is shippable unless a task says it ca
 - **Likely files:** `<path>` — <why>
 - **Prove:** <test command, verify-ui, or n/a>
 - **Notes:**
-- **Next skill:** `shape-work` | `implement-change` | `data-change` | `write-tests` | `write-docs` | `verify-ui`
+- **Next skill:** `debug` | `shape-work` | `implement-change` | `data-change` | `write-tests` | `write-docs` | `verify-ui` | bounded investigation (spike)
 
 ## Task 2 — <title>
 
@@ -63,4 +63,4 @@ Do in this order. Do not start N+1 until N is shippable unless a task says it ca
 
 ## Next
 
-<shape-work on Task 1 | implement-change on Task 1 | stop — need user>
+<Task 1 next skill or bounded investigation | stop — need user>

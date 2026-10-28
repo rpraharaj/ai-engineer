@@ -35,7 +35,7 @@ Run the **same** command, or the closest `AGENTS.md` **Test** / **Lint** / **Typ
 
 ## Step 3 — Fix the cause
 
-Follow `debug`: one hypothesis at a time, then the smallest cause-level change.
+Follow `debug`: carry forward the failing command, baseline, and evidence already collected here instead of restarting diagnosis. Test one hypothesis at a time, then make the smallest cause-level change.
 
 Forbidden:
 

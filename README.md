@@ -243,6 +243,21 @@ If you are unsure whether something belongs, open an issue first. “Should this
 
 Questions about the pack itself: [rajeshpraharaj.com](https://rajeshpraharaj.com/).
 
+## Checks and behavior scenarios
+
+Run the structural validator and the standard-library test suite:
+
+```bash
+python3 scripts/validate.py
+python3 -m unittest discover -s tests -v
+```
+
+The validator rejects duplicate frontmatter keys, incorrect field types, missing bundled resources, incomplete skill folders, host-specific content in supporting Markdown, template drift, and missing README entries. It accepts this pack's dependency-free YAML subset: plain strings, JSON-compatible double-quoted strings, YAML single-quoted strings, and a two-space-indented `metadata` string mapping. Quote numeric/boolean values and values containing a colon followed by whitespace. Use single-line descriptions; block scalars, anchors, and flow collections are outside this authoring subset. This convention keeps the generated skills valid YAML for other agents without a runtime dependency here.
+
+Automated scenario tests run the documented scope and commit commands in disposable Git repositories. They check committed feature branches, diverged bases, staged/unstaged edits, untracked filenames, staged changes hidden by unstaged reversals, and preservation of unrelated partial staging. They do not execute an agent or prove that it follows the prose.
+
+[Behavior scenarios](tests/scenarios.md) provide prompts, setup, required and forbidden actions, and evidence for separate agent evaluations, including project setup, incident rollback, contract migrations, and missing verification. Record those results separately; a passing command test is not a passing agent evaluation. The [2026-10-28 agent evaluation report](tests/evaluation-results/2026-10-28/README.md) records all 12 cases, corrected-fixture reruns, command traces, and independent state checks. Generate fresh isolated fixtures with `python3 tests/agent_evaluations.py prepare /tmp/ai-engineer-agent-evaluations-new` (the destination must not exist).
+
 ## License
 
 [MIT](LICENSE). Use it, fork it, ship it with your team. If you improve a skill, send it back so the next person does not have to guess.

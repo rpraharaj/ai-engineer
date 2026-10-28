@@ -12,7 +12,7 @@ metadata:
 
 Undo a **known** change. Prefer a new revert commit. Do not `reset --hard` or force-push a branch other people use.
 
-If `git` is missing, stop. If this is a live incident, run `incident-triage` first and come back only if the chosen action is rollback.
+For a live incident, use the action and evidence already recorded by `incident-triage`; do not restart triage when it has already selected rollback. If no action is selected, run triage first. Operational rollback may proceed without git; source-history changes require git.
 
 Read `AGENTS.md` if present.
 
@@ -32,18 +32,18 @@ Stop if you cannot name the target.
 
 | Situation | Do |
 | --- | --- |
-| Shared branch, already pushed, or a merge | `git revert` (use `-m 1` on a merge). New commit. |
+| Shared branch, already pushed, or a merge | Create a new `git revert` commit. For a merge, inspect its parents and choose the mainline that preserves the intended branch history; never assume parent 1. |
 | Unpushed local commits, your branch only, user said undo | `git reset --soft` to keep files, or `git reset --hard` **only** if they asked to discard |
-| Deploy / release already out | Revert the git change, then run this repo's existing rollback (prior artifact, flag, inverse of `cut-release`). If none exists, say what a human must roll back |
+| Deploy / release already out | Run the documented operational rollback first when safe (prior artifact or flag), checking data compatibility. Source-history repair is a separate follow-up if needed and authorized; restoring service does not require a git revert. If no rollback exists, report the missing operation rather than inventing an inverse command. |
 | Default branch (`main` / `master` / `trunk`) | Revert only. Never reset it. |
 
-Do not rewrite other people's commits. Do not `--force` to `main` / `master` / `trunk`.
+Preserve unrelated dirty files and staging. Inspect the target diff and merge parents before undoing source changes; do not use reset or stash to clear unrelated work. Do not rewrite other people's commits. Do not `--force` to `main` / `master` / `trunk`.
 
-Load `engineering-bar` (paths in that skill) **Secret files** — a revert must not restore committed secrets into a new commit without telling the user.
+Load `engineering-bar` (paths in that skill) **Secret files**. Stop a source revert that would restore secrets; explain the blocked content and construct a safe targeted undo instead. Disclosure alone does not permit committing secrets.
 
 ## Prove
 
-Run `AGENTS.md` **Test** (and **Lint** / **Typecheck** if cheap). If the revert was to stop a fire, a focused test or health check is enough; say what you did not run.
+After operational rollback, check the original symptom and the affected service's health using the recorded incident window; report recovered, still degraded, or unverified. Record the running artifact/flag and any incompatible data remaining. For source changes, run `AGENTS.md` **Test** (and **Lint** / **Typecheck** if cheap). If the revert was to stop a fire, a focused test or health check is enough; say what you did not run.
 
 ## Done
 

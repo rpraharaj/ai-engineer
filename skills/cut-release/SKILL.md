@@ -24,7 +24,7 @@ Look for the first match that this repo already uses (README, Makefile, `package
 - A releaser already configured (goreleaser, semantic-release, changesets, cargo-release, or this repo's equivalent)
 - Host CLI release (`gh release create`, `glab release create`) only if that is how this repo already ships
 
-If you cannot find a path, write the notes with `ship-notes` if needed, print the exact commands a human should run, and **stop**. Do not guess `npm publish` or a cloud deploy.
+If you cannot find a path, write the notes with `ship-notes` if needed, report which release configuration is missing and any verified manual steps, and **stop**. Do not present invented commands as exact instructions. Do not guess `npm publish` or a cloud deploy.
 
 ## Preconditions
 
@@ -35,7 +35,7 @@ If you cannot find a path, write the notes with `ship-notes` if needed, print th
 ## Run (only what they asked)
 
 1. `ship-notes` first if the changelog is stale and this repo keeps one.
-2. Version bump only if they asked **or** the existing release script does it. One version file, this repo's scheme.
+2. Version bump only if they asked **or** the existing release script does it. Update the authoritative version sources and derived lockfiles/manifests required by this repo's release tooling; respect per-package or workspace versioning.
 3. Run the detected release/deploy command. Keep the output.
 4. Tag only if they asked or the script tags. Do not `--force` a tag. Do not delete a published tag.
 5. Push tags / publish only if they asked and a remote exists.

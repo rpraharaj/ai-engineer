@@ -38,10 +38,12 @@ Name the file like existing task lists. If there are none, `docs/tasks/<slug>.md
 
 Copy headings from `references/dev-tasks-template.md` in this skill directory. Keep every heading; write `n/a` when a section does not apply. Do not invent extra sections. If that file is missing, use the same headings: Goal, Prerequisites, Order, Task N (Kind, Depends on, Traces to, In/out of scope, Acceptance, Likely files, Prove, Notes, Next skill), Out of this batch, Batch done, Risks, Next.
 
+Reuse agreed upstream decisions and acceptance checks by reference; add only the detail needed for this slice. Do not repeat a design or re-open settled choices. Investigation tasks may accept a bounded evidence report rather than a behavior change.
+
 Each task:
 
 - One kind. One next skill.
-- **Acceptance** is yes/no a stranger can verify. At least one check would fail today.
+- **Acceptance** is yes/no a stranger can verify. For a behavior change, at least one check would fail today. For an investigation, specify the question, time/effort bound, and evidence artifact instead.
 - **Likely files** are real paths, or you say you could not find them.
 - **Traces to** names the PRD requirement or design slice when those docs exist.
 - Small enough that `shape-work` can tighten it or `implement-change` can take it if it is already clear.
@@ -62,4 +64,4 @@ Order is dependency-real (schema expand before readers, flag before default-on).
 2. Task count and the first task title
 3. Next skill for Task 1
 
-Do not implement the list. Next is `shape-work` on Task 1, or `implement-change` if Task 1 is already a clear small change.
+Do not implement the list. Follow Task 1's recorded kind and next skill: `debug` for defects, `data-change` for migrations, `write-docs` for docs, or `verify-ui` for UI verification. For a change use `shape-work`, or `implement-change` when already clear. For a spike, run a bounded investigation and report evidence without implementing a speculative solution.

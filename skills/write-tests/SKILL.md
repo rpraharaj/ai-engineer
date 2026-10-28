@@ -19,7 +19,7 @@ When the user asks for test-first / red-green: one failing test at a confirmed s
 2. Else take the test command from the manifest or CI (same rules as `explore-codebase`).
 3. Open 2–3 existing tests nearest the change. Copy file name pattern, location, fixtures, case names, and how they assert errors.
 
-If you cannot find a runner or any existing test, say so. Ask before generating a new harness.
+If no runner or tests exist, report that fact. When the user has requested tests, use the named toolchain's standard test facility if available and document that choice; this already authorizes a minimal harness. Ask only if a new dependency or unresolved toolchain decision is needed.
 
 ## Seams
 
@@ -43,7 +43,7 @@ Do not add:
 - **Tautologies** — the expected value must not be recomputed the same way the code computes it (`expect(add(a,b)).toBe(a+b)`). Use an independent literal or a worked example from the spec
 - Tests for code you did not change, unless a characterization harness for `refactor-safely`
 
-If this is a regression for `debug`, start with a test that reproduces the bug. Confirm it fails on the previous revision when you can (`git stash` or the parent commit), then leave it passing with the fix. Do not comment out product code to simulate the old behavior.
+If this is a regression for `debug`, start with a test that reproduces the bug. Confirm it fails on the previous revision when you can, using an isolated temporary checkout or copied fixture that preserves all working files and staging, then leave it passing with the fix. Do not comment out product code to simulate the old behavior.
 
 ## Write and run
 

@@ -1,0 +1,41 @@
+{
+  "before": {
+    "head": "5d30ba80e8fe9d4d2887e5e979c06f5f6f07e083",
+    "status": " D evidence/backfill.json\n",
+    "index": "100644 93bd5f6f2931ecc00e2956b1b054c0fbc06deffa 0\t.gitignore\n100644 727fcc7940868f8e126384b7db7c1c2763e7a518 0\tAGENTS.md\n100644 a73828062bf2eef04906c83e962ca0be244163ee 0\tPLAN.md\n100644 efda46caf34c099357eabc02f330e2e9f8769648 0\tREADME.md\n100644 863b764b36346ab1d4b90b573c0309a85127f785 0\tevidence/backfill.json\n100644 168d334bb4d5d194dc7b121f9ce18ca9c989b6f7 0\tevidence/deployment.json\n100644 37cffc5039d0d6325aa718bfe9b4d98afe562377 0\tevidence/rollback.json\n100644 bcf44725ef05612d9ab804b797e9c720f7f2dcc7 0\tjobs.py\n100644 c68dac328e49bda64fbb5d6dbf926d481ddc43e8 0\tmigrations/001_expand.sql\n100644 34fcb6c65e70b27d6ad5269d44d64bf423a3ad2e 0\tmigrations/003_contract.sql\n100644 5c12cdc518cfff535e15ee2757d66d3073d1a246 0\treader.py\n100644 efcfd6a5e0e17029716b62e24d407228cc45e528 0\ttests/test_contract.py\n100644 091f24bd208ad48b462c961c13e7065323afc482 0\twriter.py\n",
+    "files": {
+      ".gitignore": "eab6edb253a9863fa18a1d9c1e7ae00dcac715b436cc1d213abbf7a761bef58c",
+      "AGENTS.md": "b471d4bc1056c596d1df36428d3da989ecbd2b063ea6758545060a4a6b234727",
+      "PLAN.md": "7aa1f1cb89dbec1e45aa6ca4e0949ba6b5ef1e3cfba8093c7d4004ec1e00252d",
+      "README.md": "3f0a5105203c40918b7a9de4dc627571cb17825286dfd3275e251ec1cfd1a548",
+      "evidence/deployment.json": "793fb5867646ba67235b3ffd902b756eb0d9e44a9c92b4df44099ec807afe27f",
+      "evidence/rollback.json": "3229f283b1bebab8bb4db9e28b456bc1f9bbd949b007096ef4f52fa15ab1b677",
+      "jobs.py": "65fc77771acb8019a56b5f6974c8626c99c49e60ab6c1062754ede6b371c79fa",
+      "migrations/001_expand.sql": "7b4f476ffe670456175cede2400de5d55bd6164f885a6a229eae81b5b3b61377",
+      "migrations/003_contract.sql": "c2cfe44e4d936fa1efe31ea9be3206c1c013ee4a50ce87813ddd9e75372e9eaa",
+      "reader.py": "1dc85d567f479a9ff81f6f2cc9eab2c8664bac3620855a05aa3c1693e6b9c24f",
+      "tests/test_contract.py": "a6273f40bd075e7ee1007f6a93ded3b2332b58f00fc6e5153344fb6983723cad",
+      "writer.py": "7783195c12a6de9dc47ec607fef8798963116a76b85cd986ef4306d530cb3fa5"
+    }
+  },
+  "after": {
+    "head": "5d30ba80e8fe9d4d2887e5e979c06f5f6f07e083",
+    "status": " D evidence/backfill.json\n",
+    "index": "100644 93bd5f6f2931ecc00e2956b1b054c0fbc06deffa 0\t.gitignore\n100644 727fcc7940868f8e126384b7db7c1c2763e7a518 0\tAGENTS.md\n100644 a73828062bf2eef04906c83e962ca0be244163ee 0\tPLAN.md\n100644 efda46caf34c099357eabc02f330e2e9f8769648 0\tREADME.md\n100644 863b764b36346ab1d4b90b573c0309a85127f785 0\tevidence/backfill.json\n100644 168d334bb4d5d194dc7b121f9ce18ca9c989b6f7 0\tevidence/deployment.json\n100644 37cffc5039d0d6325aa718bfe9b4d98afe562377 0\tevidence/rollback.json\n100644 bcf44725ef05612d9ab804b797e9c720f7f2dcc7 0\tjobs.py\n100644 c68dac328e49bda64fbb5d6dbf926d481ddc43e8 0\tmigrations/001_expand.sql\n100644 34fcb6c65e70b27d6ad5269d44d64bf423a3ad2e 0\tmigrations/003_contract.sql\n100644 5c12cdc518cfff535e15ee2757d66d3073d1a246 0\treader.py\n100644 efcfd6a5e0e17029716b62e24d407228cc45e528 0\ttests/test_contract.py\n100644 091f24bd208ad48b462c961c13e7065323afc482 0\twriter.py\n",
+    "files": {
+      ".gitignore": "eab6edb253a9863fa18a1d9c1e7ae00dcac715b436cc1d213abbf7a761bef58c",
+      "AGENTS.md": "b471d4bc1056c596d1df36428d3da989ecbd2b063ea6758545060a4a6b234727",
+      "PLAN.md": "7aa1f1cb89dbec1e45aa6ca4e0949ba6b5ef1e3cfba8093c7d4004ec1e00252d",
+      "README.md": "3f0a5105203c40918b7a9de4dc627571cb17825286dfd3275e251ec1cfd1a548",
+      "evidence/deployment.json": "793fb5867646ba67235b3ffd902b756eb0d9e44a9c92b4df44099ec807afe27f",
+      "evidence/rollback.json": "3229f283b1bebab8bb4db9e28b456bc1f9bbd949b007096ef4f52fa15ab1b677",
+      "jobs.py": "65fc77771acb8019a56b5f6974c8626c99c49e60ab6c1062754ede6b371c79fa",
+      "migrations/001_expand.sql": "7b4f476ffe670456175cede2400de5d55bd6164f885a6a229eae81b5b3b61377",
+      "migrations/003_contract.sql": "c2cfe44e4d936fa1efe31ea9be3206c1c013ee4a50ce87813ddd9e75372e9eaa",
+      "reader.py": "1dc85d567f479a9ff81f6f2cc9eab2c8664bac3620855a05aa3c1693e6b9c24f",
+      "tests/test_contract.py": "a6273f40bd075e7ee1007f6a93ded3b2332b58f00fc6e5153344fb6983723cad",
+      "writer.py": "7783195c12a6de9dc47ec607fef8798963116a76b85cd986ef4306d530cb3fa5"
+    }
+  },
+  "independent_assertion": "HEAD, index entries, and all product file hashes unchanged."
+}

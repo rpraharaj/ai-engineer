@@ -27,6 +27,8 @@ If product "why" is still unknown, stop and run `write-prd`. If the first slice 
 
 Read `AGENTS.md` if present. Skim entry points and an existing pattern. If you have not mapped the repo and the change is more than a few files, run `explore-codebase` or say the design is incomplete.
 
+Carry forward agreed upstream decisions and acceptance checks by reference. Add only missing detail for this deliverable; do not regenerate or seek approval again for settled decisions. Existing authorization to implement continues to apply once blocking decisions are resolved.
+
 ## Ask only when blocked
 
 Ask at most a few **blocking** questions (product fork, compatibility, environment). Prefer a recommended answer. Non-blocking questions go in the doc.
@@ -66,4 +68,4 @@ Fill from the repo and any PRD/architecture the user pointed at:
 2. Chosen approach in a few sentences
 3. Slice 1, and the next skill
 
-Do not implement unless the user explicitly said design **and** implement and slice 1 is already fully specified — then `shape-work` or `implement-change` on that slice only.
+Continue into implementation only when the user has authorized it, blocking decisions are resolved, and slice 1 is fully specified — then `shape-work` or `implement-change` on that slice only.

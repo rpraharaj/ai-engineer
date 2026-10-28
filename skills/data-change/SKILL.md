@@ -13,6 +13,10 @@ Change stored or published shape **without breaking current readers**. Do not mi
 
 Read `AGENTS.md` if present.
 
+## Mode
+
+When invoked by a review or `ready-to-merge`, assess the existing plan, migration, and evidence only; do not write or execute migrations. In implementation mode, apply only the authorized current step. Reuse the caller's scope through `engineering-bar` **Shared procedures**.
+
 ## Detect how this repo migrates
 
 From existing folders and manifests, use the tool already here. Do not add a new migrator.
@@ -36,6 +40,10 @@ If the user asked for a rename or drop, split the work:
 3. Later change: contract (drop the old)
 
 Say that plan and only implement the step they are on (default: expand).
+
+## Contract prerequisites
+
+Before contraction, require evidence that expand is deployed, the backfill is complete and checked, and all supported readers and writers have migrated (including jobs and external consumers). Verify old fields no longer receive writes. Document a rollback that does not redeploy code requiring the removed shape. If any of these are unknown, contraction is unverified and must not run. An accepted versioned breaking API change still needs an explicit consumer and rollout plan.
 
 ## Plan before files
 
@@ -67,9 +75,9 @@ Prove with this repo's tests (`write-tests` if a migration test pattern exists) 
 
 ## Done
 
-1. The plan (which step you executed)
+1. Mode (assessment or implementation), plan, and step assessed or executed; report missing evidence as unverified
 2. Files added
-3. Commands run (including migrate/test) and results
+3. Commands run (including migrate/test only when authorized) and results
 4. What must happen in a later change (contract, leftover dual-write)
 
 Do not commit unless asked.

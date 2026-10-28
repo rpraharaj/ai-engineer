@@ -53,7 +53,7 @@ Pick **one** primary action and say why:
 | **Fix forward** | Cause is known, fix is smaller than rollback, or rollback is impossible |
 | **Observe** | Impact is gone and you are confirming; do not declare closed yet |
 
-Rollback and mitigate come **before** a clever fix. If you choose **Rollback / flag off**, the mechanical undo is `revert-change` (and this repo's flag/console if that is the rollback). If you choose fix forward, hand the actual diagnosis to `debug` (repro if you can get one without making things worse; otherwise use prod evidence as the baseline).
+Rollback and mitigate come **before** a clever fix. If you choose **Rollback / flag off**, the mechanical undo is `revert-change` (and this repo's flag/console if that is the rollback). Pass the snapshot, selected action, evidence window, and recovery check to the next skill; nested skills must reuse that context rather than restarting triage. If you choose fix forward, hand the actual diagnosis to `debug` (repro if you can get one without making things worse; otherwise use prod evidence as the baseline).
 
 Do not run destructive data repairs (drop, unscoped delete, unbatched rewrite) unless the user explicitly asked and you wrote the blast radius.
 

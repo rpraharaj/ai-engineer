@@ -1,0 +1,29 @@
+{
+  "before": {
+    "head": "2aae8de2d3b6154605392bb653e710068826abed",
+    "status": " M style.css\n",
+    "index": "100644 93bd5f6f2931ecc00e2956b1b054c0fbc06deffa 0\t.gitignore\n100644 8860c8e426438879418667648a772a81d2e0af45 0\tAGENTS.md\n100644 a2187cc983daab04db2545d3e0a339e5aae2a126 0\tREADME.md\n100644 ea67e677bef9c3386ea58873f7124676017612bf 0\tindex.html\n100644 d9bdcc5714617caa55d509f565075889368e8dbb 0\tstyle.css\n100644 ef4892d305fbd639f7e54a7d339b78f150d9a14f 0\ttests/test_render.py\n",
+    "files": {
+      ".gitignore": "eab6edb253a9863fa18a1d9c1e7ae00dcac715b436cc1d213abbf7a761bef58c",
+      "AGENTS.md": "b3e346137aae346c6ca327c04054bb115f586296fc6ef9206a8371cd0c0690ea",
+      "README.md": "4bdfbbedb89f9549a5ad6cb464208f8d875e6018d4f255e7796f278b4e0cbb15",
+      "index.html": "157fd3da18fcf2e641d0bd52a7f8493b7c12b8109c2651be49f91dc221d90bc4",
+      "style.css": "d0d01b5fcf3500962457c3bbc8b5a7fe6436eab78d65353b54cbb0da68aa952c",
+      "tests/test_render.py": "ecdc9c7822bf5a98c45dfddf5e5b2c8cc21877b7f5e979edf2adf68d9c96166b"
+    }
+  },
+  "after": {
+    "head": "2aae8de2d3b6154605392bb653e710068826abed",
+    "status": " M style.css\n",
+    "index": "100644 93bd5f6f2931ecc00e2956b1b054c0fbc06deffa 0\t.gitignore\n100644 8860c8e426438879418667648a772a81d2e0af45 0\tAGENTS.md\n100644 a2187cc983daab04db2545d3e0a339e5aae2a126 0\tREADME.md\n100644 ea67e677bef9c3386ea58873f7124676017612bf 0\tindex.html\n100644 d9bdcc5714617caa55d509f565075889368e8dbb 0\tstyle.css\n100644 ef4892d305fbd639f7e54a7d339b78f150d9a14f 0\ttests/test_render.py\n",
+    "files": {
+      ".gitignore": "eab6edb253a9863fa18a1d9c1e7ae00dcac715b436cc1d213abbf7a761bef58c",
+      "AGENTS.md": "b3e346137aae346c6ca327c04054bb115f586296fc6ef9206a8371cd0c0690ea",
+      "README.md": "4bdfbbedb89f9549a5ad6cb464208f8d875e6018d4f255e7796f278b4e0cbb15",
+      "index.html": "157fd3da18fcf2e641d0bd52a7f8493b7c12b8109c2651be49f91dc221d90bc4",
+      "style.css": "d0d01b5fcf3500962457c3bbc8b5a7fe6436eab78d65353b54cbb0da68aa952c",
+      "tests/test_render.py": "ecdc9c7822bf5a98c45dfddf5e5b2c8cc21877b7f5e979edf2adf68d9c96166b"
+    }
+  },
+  "independent_assertion": "HEAD, index entries, and product file hashes unchanged."
+}

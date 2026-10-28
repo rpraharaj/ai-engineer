@@ -1,0 +1,17 @@
+{
+  "operations": [
+    [
+      "rollback",
+      "v1"
+    ],
+    [
+      "status"
+    ]
+  ],
+  "state": {
+    "artifact": "v1",
+    "status": 200,
+    "errors": 0,
+    "schema": "v1"
+  }
+}

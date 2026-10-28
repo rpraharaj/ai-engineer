@@ -23,17 +23,16 @@ git remote -v
 git log -1 --oneline
 ```
 
-Detect the default base branch (first that exists): `main`, `master`, `trunk`, or the remote `HEAD`.
+Resolve the selected remote and actual target using `engineering-bar` **Shared procedures** for base selection and change scope. Prefer the explicit or configured target and remote default over conventional branch names. Use the recorded merge-base and tip for the PR description.
 
 ```sh
-git symbolic-ref --quiet refs/remotes/origin/HEAD || true
-git log --oneline "$(git merge-base HEAD <base> 2>/dev/null || echo <base>)"..HEAD
-git diff <base>...HEAD
+git log --oneline <merge-base>..<tip>
+git diff <merge-base> <tip> --
 ```
 
 Stop if there are no commits on this branch vs the base. If the branch has uncommitted work the user likely wants in the PR, run `commit` first (or say it is uncommitted). If the user has not run `ready-to-merge` on this change, say so; do not block the PR unless they asked for a merge gate.
 
-Do not open a PR from `main` / `master` / `trunk` unless the user insisted.
+Do not open a PR from the selected default/base branch itself unless the user insisted.
 
 ## Body
 
@@ -65,20 +64,20 @@ Detect the host from `git remote -v`.
 **GitHub**, if `gh` works (`gh auth status` succeeds):
 
 ```sh
-git push -u origin HEAD
+git push -u <remote> HEAD
 gh pr create --title "..." --body "..." --base <base>
 ```
 
 **GitLab**, if `glab` works:
 
 ```sh
-git push -u origin HEAD
+git push -u <remote> HEAD
 glab mr create --title "..." --description "..." --target-branch <base>
 ```
 
 Otherwise:
 
-1. `git push -u origin HEAD` if the user asked to publish and a remote exists
+1. `git push -u <remote> HEAD` if the user asked to publish and a remote exists
 2. Print the title, body, base, and the compare URL if you can construct it from the remote
 3. Say which CLI was missing
 

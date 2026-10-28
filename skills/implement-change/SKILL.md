@@ -16,7 +16,7 @@ Apply the smallest change that satisfies the request (a shaped task, or a clear 
 1. Read `AGENTS.md` if present. Use its commands.
 2. If the workspace has no product yet (empty, or only bootstrap files such as `README`, `LICENSE`, `.gitignore`, `AGENTS.md`), stop and run `start-project`.
 3. If the request is vague (no acceptance checks, no in/out of scope, and more than one product decision is open), run `shape-work` first and stop after shaping unless the user already told you to implement the result. If they pointed at a `write-dev-tasks` list, take Task 1 (or the task they named) — `shape-work` it if it is still loose. A clear small change (one behavior, likely files are obvious, no open product fork) does not need a shape document — implement it.
-4. Load `engineering-bar` (paths in that skill). If it is missing, apply its defaults plus: match existing patterns, handle error paths, no secrets, no N+1, no unbounded lists.
+4. Load `engineering-bar` (paths in that skill). If it is missing, follow repository instructions and disclose the incomplete shared-bar assessment rather than claiming it passed.
 5. Climb **Minimum path** in that bar. Search this repo for an existing helper before writing a new one.
 6. If this is a bug fix, find every caller of the function you will change and fix the shared cause once. Do not patch only the ticket's path.
 
@@ -46,7 +46,7 @@ If the change touches UI (components, routes, CSS, views, client state), follow 
 
 ## Apply the bar
 
-Walk the diff against `engineering-bar`. Fix fails. If you waive an item, write the waiver in the summary.
+Walk the diff against `engineering-bar`. Fix fails. Only the user may waive an item; report their explicit waiver and its risk. Load the bar's shared evidence procedure and reuse current results rather than repeating unchanged checks.
 
 ## Done
 

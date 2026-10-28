@@ -1,0 +1,25 @@
+{
+  "before": {
+    "head": "174cfb049a1428f69e1567b2f30e34168fe82dbf",
+    "status": " M app.cob\n",
+    "index": "100644 93bd5f6f2931ecc00e2956b1b054c0fbc06deffa 0\t.gitignore\n100644 2929930ab25cb9c1d8e2dea571236dfd0bdf8911 0\tAGENTS.md\n100644 2e95974aa70408575514d0179291e80cf665c24c 0\tREADME.md\n100644 d762cae3d79bee212cb0a1b75b738732b201cc23 0\tapp.cob\n",
+    "files": {
+      ".gitignore": "eab6edb253a9863fa18a1d9c1e7ae00dcac715b436cc1d213abbf7a761bef58c",
+      "AGENTS.md": "a323232be3e7cf37bc06ede4d0e2a33e9de6d69bb411ecb91346944e3db79fb3",
+      "README.md": "5a9e155d327e142ce1c27577c3dbc7b91d8c9ace0f0a3610b7c0a3988f684e04",
+      "app.cob": "699a516d63138ce325f72d9983428ed109087760bad14bc804979203ff43d83f"
+    }
+  },
+  "after": {
+    "head": "174cfb049a1428f69e1567b2f30e34168fe82dbf",
+    "status": " M app.cob\n",
+    "index": "100644 93bd5f6f2931ecc00e2956b1b054c0fbc06deffa 0\t.gitignore\n100644 2929930ab25cb9c1d8e2dea571236dfd0bdf8911 0\tAGENTS.md\n100644 2e95974aa70408575514d0179291e80cf665c24c 0\tREADME.md\n100644 d762cae3d79bee212cb0a1b75b738732b201cc23 0\tapp.cob\n",
+    "files": {
+      ".gitignore": "eab6edb253a9863fa18a1d9c1e7ae00dcac715b436cc1d213abbf7a761bef58c",
+      "AGENTS.md": "a323232be3e7cf37bc06ede4d0e2a33e9de6d69bb411ecb91346944e3db79fb3",
+      "README.md": "5a9e155d327e142ce1c27577c3dbc7b91d8c9ace0f0a3610b7c0a3988f684e04",
+      "app.cob": "699a516d63138ce325f72d9983428ed109087760bad14bc804979203ff43d83f"
+    }
+  },
+  "independent_assertion": "HEAD, index entries, and all product file hashes unchanged."
+}

@@ -1,0 +1,29 @@
+{
+  "before": {
+    "head": "9ffdc8df3103ff9ef0a55f3ce88a0ba3fe663102",
+    "status": " M api.py\n",
+    "index": "100644 93bd5f6f2931ecc00e2956b1b054c0fbc06deffa 0\t.gitignore\n100644 727fcc7940868f8e126384b7db7c1c2763e7a518 0\tAGENTS.md\n100644 c0c7eb2f695768f825b265741ff6ee23d298b885 0\tREADME.md\n100644 ad0aeda5dd005f5dac4997c680dee60b2395ad2b 0\tapi.py\n100644 dd49ebbc7682ef3b7cec26d8ec931149341576e9 0\told_request.json\n100644 4294889826f9d939a8ab4aa6844613ce2a6cdec9 0\ttests/test_old_client.py\n",
+    "files": {
+      ".gitignore": "eab6edb253a9863fa18a1d9c1e7ae00dcac715b436cc1d213abbf7a761bef58c",
+      "AGENTS.md": "b471d4bc1056c596d1df36428d3da989ecbd2b063ea6758545060a4a6b234727",
+      "README.md": "fe68b5b8acc0a219f9dd25a6ad0068710f47a30288deaacceecac540578d37ab",
+      "api.py": "de2f8af24ae0fdf506961a93e8aee62be231a7195ee38a45e4bfd4cd9c5f68cd",
+      "old_request.json": "0800f85bc24dc56f66d6f3dbea1b15d00b18eb75c6a2f00c4a6f99e8ecb3e3df",
+      "tests/test_old_client.py": "f5572c2063aa3f1d6ec1e184fc6146e5ae62925ff170a1292d46e418b0b4f3e0"
+    }
+  },
+  "after": {
+    "head": "9ffdc8df3103ff9ef0a55f3ce88a0ba3fe663102",
+    "status": " M api.py\n",
+    "index": "100644 93bd5f6f2931ecc00e2956b1b054c0fbc06deffa 0\t.gitignore\n100644 727fcc7940868f8e126384b7db7c1c2763e7a518 0\tAGENTS.md\n100644 c0c7eb2f695768f825b265741ff6ee23d298b885 0\tREADME.md\n100644 ad0aeda5dd005f5dac4997c680dee60b2395ad2b 0\tapi.py\n100644 dd49ebbc7682ef3b7cec26d8ec931149341576e9 0\told_request.json\n100644 4294889826f9d939a8ab4aa6844613ce2a6cdec9 0\ttests/test_old_client.py\n",
+    "files": {
+      ".gitignore": "eab6edb253a9863fa18a1d9c1e7ae00dcac715b436cc1d213abbf7a761bef58c",
+      "AGENTS.md": "b471d4bc1056c596d1df36428d3da989ecbd2b063ea6758545060a4a6b234727",
+      "README.md": "fe68b5b8acc0a219f9dd25a6ad0068710f47a30288deaacceecac540578d37ab",
+      "api.py": "de2f8af24ae0fdf506961a93e8aee62be231a7195ee38a45e4bfd4cd9c5f68cd",
+      "old_request.json": "0800f85bc24dc56f66d6f3dbea1b15d00b18eb75c6a2f00c4a6f99e8ecb3e3df",
+      "tests/test_old_client.py": "f5572c2063aa3f1d6ec1e184fc6146e5ae62925ff170a1292d46e418b0b4f3e0"
+    }
+  },
+  "independent_assertion": "HEAD, index entries, and all product file hashes unchanged."
+}

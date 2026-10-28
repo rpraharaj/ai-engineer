@@ -9,7 +9,7 @@ metadata:
 
 # Engineering bar
 
-Apply this to the **current diff**, not the whole product. Walk each section. Mark each item pass, fail, or n/a. Fix fails, or get an explicit user waiver. Do not invent extra standards this repo does not use.
+Apply this to the **current diff**, not the whole product. Walk each section and assess each applicable item using the shared evidence statuses. The invoking skill controls whether edits are authorized: reviews report failures; implementation fixes failures within scope. Only the user may waive a failure or verification gap. Do not invent extra standards this repo does not use.
 
 If `AGENTS.md` exists, follow it. Repo-specific commands win when they conflict with examples here. You still must not commit secrets or claim unverified results.
 
@@ -30,14 +30,13 @@ Fail commit and ready-to-merge (and any secret scan) if the change adds:
 - credential files, keystores, dumped tokens
 - secrets pasted into otherwise-normal files
 
-## Defaults when AGENTS.md is missing
+## Shared procedures
 
-- Do not claim tests, types, lint, or builds passed unless this session ran the command and captured the output.
-- Do not commit secrets, `.env` files, credentials, or private keys.
-- Match this repository. Do not introduce a new stack, formatter, or test runner.
-- Smallest change that satisfies the request. Prefer reuse, the standard library, and native platform features over new code or new dependencies. No drive-by refactors.
-- Do not force-push shared branches. Do not amend other people's commits.
-- Do not delete or skip a failing test to get a green run.
+Load `references/change-scope.md` and `references/evidence.md` relative to this skill directory for change collection, base selection, result statuses, and evidence reuse. These are the shared procedures for all checks. If a required procedure is unavailable, report the assessment as incomplete rather than inventing a pass.
+
+## Repository defaults
+
+Always-on defaults belong to the repository's `AGENTS.md`. If missing, use `../explore-codebase/references/agents-template.md` when available; do not maintain a second defaults list here. Apply this bar even when no template is available.
 
 ## Correctness
 
@@ -120,4 +119,4 @@ The walk-through is `verify-ui`. This section is the bar.
 
 ## Output
 
-When asked to apply this bar, report only fails and waivers, then the list of checks that ran. Silence on a section means pass or n/a — say which.
+Report failures, unverified requirements, and user waivers, then the checks and evidence used. Explicitly identify remaining assessed sections as pass or not applicable; silence is not evidence of a pass.

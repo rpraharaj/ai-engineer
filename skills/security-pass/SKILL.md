@@ -15,7 +15,7 @@ Read `AGENTS.md` if present. Load `engineering-bar` (paths in that skill) for Se
 
 ## Collect
 
-Diff vs `HEAD` or the branch the user named. Inventory:
+Follow `engineering-bar` **Shared procedures** for scope and evidence, reusing the caller's recorded scope when provided. Inventory:
 
 - New or changed reachable surfaces (HTTP routes, RPC, jobs that consume untrusted payloads, CLI flags, UI actions)
 - Trust boundaries crossed (client → server, webhook → app, file → parser, query → HTML)
@@ -47,7 +47,7 @@ Skip items the diff cannot hit. Do not file theoretical issues with no path from
 ## Output
 
 ```markdown
-## Security pass: pass | fail
+## Security pass: pass | fail | unverified
 
 ### Inventory
 - Surfaces:
@@ -60,7 +60,7 @@ Skip items the diff cannot hit. Do not file theoretical issues with no path from
 - Suggestion:
 
 ### Secrets
-pass | fail
+pass | fail | unverified
 ```
 
 If the user asked you to fix fails, use `implement-change` (smallest fix, tests via `write-tests`). Do not "fix" security by deleting the check or broadening authz.

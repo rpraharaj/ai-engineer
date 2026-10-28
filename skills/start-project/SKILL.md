@@ -30,8 +30,8 @@ Prefer the official init for the named toolchain (`cargo init`, `go mod init`, `
 1. Init the project with that official tool (or a minimal manifest if no init exists).
 2. One entry point that runs.
 3. One test that fails if the entry is broken, in the runner that toolchain already uses.
-4. A root `README` with Install / Run / Test from commands you actually used.
-5. Copy the first readable `AGENTS.md` template: `../explore-codebase/references/agents-template.md`, else `../../templates/AGENTS.md` when this pack's layout is intact. If neither is readable, write the Agent defaults list (verify before claiming; no secrets; match the repo; smallest change; no shared-history rewrite; no skipped tests) plus `## This repo` and `## Glossary`. Fill **This repo** from the commands you ran.
+4. A root `README` with Install / Run / Test from commands you actually used. Preserve existing content; update only relevant sections. Do not run an initializer that overwrites existing files without first arranging a safe merge.
+5. If `AGENTS.md` exists, preserve its prose and update only the managed sections using `explore-codebase` **Step 6**. If absent, copy `../explore-codebase/references/agents-template.md`, else `../../templates/AGENTS.md` when available. If neither is readable, create only the repository facts and glossary, and report the missing defaults template. Fill facts from commands you ran. Never overwrite an existing instructions file with a starter template.
 
 Load `engineering-bar` (paths in that skill). Climb **Minimum path**. No extra dependencies, no extra folders, no CI you were not asked for.
 

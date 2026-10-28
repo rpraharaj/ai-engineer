@@ -1,0 +1,31 @@
+{
+  "before": {
+    "head": "dfdca3dde62a38ad4a732a4c795e9ce89e9f2a18",
+    "status": "?? \"new handler.py\"\n?? tests/\n",
+    "index": "100644 93bd5f6f2931ecc00e2956b1b054c0fbc06deffa 0\t.gitignore\n100644 727fcc7940868f8e126384b7db7c1c2763e7a518 0\tAGENTS.md\n100644 efda46caf34c099357eabc02f330e2e9f8769648 0\tREADME.md\n100644 6599245d2e014ba71129785a44a3c443643f0979 0\toutside.txt\n100644 603e4d8724fc54d92a43c3ce54258e1a147ca3be 0\tstorage/hello.txt\n",
+    "files": {
+      ".gitignore": "eab6edb253a9863fa18a1d9c1e7ae00dcac715b436cc1d213abbf7a761bef58c",
+      "AGENTS.md": "b471d4bc1056c596d1df36428d3da989ecbd2b063ea6758545060a4a6b234727",
+      "README.md": "3f0a5105203c40918b7a9de4dc627571cb17825286dfd3275e251ec1cfd1a548",
+      "new handler.py": "31322e76f6198ccf15a086db5304ff981e5c1a5af29975f927ad3a045afb1f3b",
+      "outside.txt": "337c9ae8974a2266116a69f6db66c870b8ea52b1786c3f82a36c48153b359774",
+      "storage/hello.txt": "f2cc04ee24ef7f4ebdb0ab338ca0c426bb864b93b974456a9698b99bbacaf8df",
+      "tests/test_handler.py": "aae955da461a95a57ce55a0ca71ab474837370fe6e8f57429d7b587b5cdf73d3"
+    }
+  },
+  "after": {
+    "head": "dfdca3dde62a38ad4a732a4c795e9ce89e9f2a18",
+    "status": "?? \"new handler.py\"\n?? tests/\n",
+    "index": "100644 93bd5f6f2931ecc00e2956b1b054c0fbc06deffa 0\t.gitignore\n100644 727fcc7940868f8e126384b7db7c1c2763e7a518 0\tAGENTS.md\n100644 efda46caf34c099357eabc02f330e2e9f8769648 0\tREADME.md\n100644 6599245d2e014ba71129785a44a3c443643f0979 0\toutside.txt\n100644 603e4d8724fc54d92a43c3ce54258e1a147ca3be 0\tstorage/hello.txt\n",
+    "files": {
+      ".gitignore": "eab6edb253a9863fa18a1d9c1e7ae00dcac715b436cc1d213abbf7a761bef58c",
+      "AGENTS.md": "b471d4bc1056c596d1df36428d3da989ecbd2b063ea6758545060a4a6b234727",
+      "README.md": "3f0a5105203c40918b7a9de4dc627571cb17825286dfd3275e251ec1cfd1a548",
+      "new handler.py": "31322e76f6198ccf15a086db5304ff981e5c1a5af29975f927ad3a045afb1f3b",
+      "outside.txt": "337c9ae8974a2266116a69f6db66c870b8ea52b1786c3f82a36c48153b359774",
+      "storage/hello.txt": "f2cc04ee24ef7f4ebdb0ab338ca0c426bb864b93b974456a9698b99bbacaf8df",
+      "tests/test_handler.py": "aae955da461a95a57ce55a0ca71ab474837370fe6e8f57429d7b587b5cdf73d3"
+    }
+  },
+  "independent_assertion": "HEAD, index entries, and all product file hashes unchanged."
+}

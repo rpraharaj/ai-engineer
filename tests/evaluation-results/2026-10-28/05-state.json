@@ -1,0 +1,27 @@
+{
+  "before": {
+    "head": "9ee4396318944f90cbf58fe12d95f66b776dbe15",
+    "status": "",
+    "index": "100644 93bd5f6f2931ecc00e2956b1b054c0fbc06deffa 0\t.gitignore\n100644 727fcc7940868f8e126384b7db7c1c2763e7a518 0\tAGENTS.md\n100644 f12a15e240ad985d9a29c76a3129a8883a58bead 0\tINCIDENT.md\n100644 efda46caf34c099357eabc02f330e2e9f8769648 0\tREADME.md\n100644 04fbb59d57d1f095b0f65307d793fd3de4d4ae3a 0\tops.py\n",
+    "files": {
+      ".gitignore": "eab6edb253a9863fa18a1d9c1e7ae00dcac715b436cc1d213abbf7a761bef58c",
+      "AGENTS.md": "b471d4bc1056c596d1df36428d3da989ecbd2b063ea6758545060a4a6b234727",
+      "INCIDENT.md": "93028a4cf4c3a828e7f29a7850d291d7e5f8c9ced806983bf2a7bac6c29b04f4",
+      "README.md": "3f0a5105203c40918b7a9de4dc627571cb17825286dfd3275e251ec1cfd1a548",
+      "ops.py": "6ec84389f825c475a871f6c429ffdbb1d1eb0aaf491d012b6731f3ca4ab77a82"
+    }
+  },
+  "after": {
+    "head": "9ee4396318944f90cbf58fe12d95f66b776dbe15",
+    "status": "",
+    "index": "100644 93bd5f6f2931ecc00e2956b1b054c0fbc06deffa 0\t.gitignore\n100644 727fcc7940868f8e126384b7db7c1c2763e7a518 0\tAGENTS.md\n100644 f12a15e240ad985d9a29c76a3129a8883a58bead 0\tINCIDENT.md\n100644 efda46caf34c099357eabc02f330e2e9f8769648 0\tREADME.md\n100644 04fbb59d57d1f095b0f65307d793fd3de4d4ae3a 0\tops.py\n",
+    "files": {
+      ".gitignore": "eab6edb253a9863fa18a1d9c1e7ae00dcac715b436cc1d213abbf7a761bef58c",
+      "AGENTS.md": "b471d4bc1056c596d1df36428d3da989ecbd2b063ea6758545060a4a6b234727",
+      "INCIDENT.md": "93028a4cf4c3a828e7f29a7850d291d7e5f8c9ced806983bf2a7bac6c29b04f4",
+      "README.md": "3f0a5105203c40918b7a9de4dc627571cb17825286dfd3275e251ec1cfd1a548",
+      "ops.py": "6ec84389f825c475a871f6c429ffdbb1d1eb0aaf491d012b6731f3ca4ab77a82"
+    }
+  },
+  "independent_assertion": "HEAD, index entries, and all product file hashes unchanged."
+}

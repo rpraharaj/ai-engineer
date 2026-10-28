@@ -51,7 +51,7 @@ Read the manifest scripts and CI jobs. Those are the source of truth for command
 
 ## Step 3 — Resolve commands
 
-For each of **Install**, **Run**, **Test**, **Lint**, **Typecheck**, **Build**:
+For each of **Install**, **Run**, **Test**, **Format**, **Lint**, **Typecheck**, **Build**:
 
 1. Take the command from a manifest script, Makefile target, or CI step that clearly matches that job.
 2. If several match, prefer the one CI uses.
@@ -84,9 +84,9 @@ From README, manifests, and a shallow directory listing (not a full dump of `nod
 1. `references/agents-template.md` next to this skill (always ships with the skill folder)
 2. `../../templates/AGENTS.md` when this pack's repo layout is intact
 
-If neither is readable, write an "Agent defaults" list (verify before claiming; no secrets; match the repo; smallest change; no shared-history rewrite; no skipped tests) plus `## This repo` and `## Glossary` managed sections.
+If neither is readable, create only `## This repo` and `## Glossary` managed sections and report the missing defaults template. Do not invent or maintain another defaults list.
 
-**If `AGENTS.md` exists:** replace only the matching managed blocks below. If a marker pair is missing, append that section. Do not rewrite the user's other prose.
+**If `AGENTS.md` exists:** replace only the matching managed blocks below. If both markers are absent, append that managed section without replacing existing prose. If markers are unmatched or duplicated, report the ambiguity and leave that section unchanged. Do not rewrite the user's other prose.
 
 Fill every field from evidence. Use `(unknown)` when you could not prove a command.
 
@@ -100,6 +100,7 @@ Fill every field from evidence. Use `(unknown)` when you could not prove a comma
 - **Install:** `<command or (unknown)>`
 - **Run:** `<command or (unknown)>`
 - **Test:** `<command or (unknown)>`
+- **Format:** `<command or (unknown)>`
 - **Lint:** `<command or (unknown)>`
 - **Typecheck:** `<command or (unknown)>`
 - **Build:** `<command or (unknown)>`

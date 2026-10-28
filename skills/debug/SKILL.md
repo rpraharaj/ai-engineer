@@ -9,7 +9,7 @@ metadata:
 
 # Debug
 
-Find the cause of a known failure. Do not shotgun-edit. Do not start a feature while debugging. Do not theorise without a command that can go red on **this** bug.
+Find the cause of a known failure. Do not shotgun-edit. Do not start a feature while debugging. Ground hypotheses in a reproduction or captured incident evidence for **this** bug.
 
 Read `AGENTS.md` if present. Redact secrets in anything you show (`<REDACTED>`). Prefer env vars over pasting credentials.
 
@@ -41,19 +41,19 @@ Try, in order, until you have **one command you have already run**:
 
 Then tighten: faster, asserts the user's exact symptom (not "didn't crash"), deterministic (pin time/RNG/network). Flakes: raise reproduction rate until it is debuggable.
 
-**Done with this step when** you can name one command, show its (redacted) output, and it is red-capable, deterministic, fast, and runnable without a human. If you cannot build a loop, list what you tried and stop.
+**Done with this step when** you have a fast, red-capable command with captured output and controlled inputs. For intermittent failures, record reproduction frequency and remaining nondeterminism. For a live incident where safe replay is unavailable, captured production evidence remains an accepted baseline: proceed with bounded probes, label causal uncertainty, and verify the original production symptom after mitigation. Without either a loop or incident evidence, list what you tried and stop.
 
-If you catch yourself reading code to build a theory before that command exists, stop.
+Read the entry point, nearby tests, and necessary callers to construct the loop. Keep inspection focused; do not change code based on an unsupported theory.
 
 ## Step 3 — Reproduce and minimise
 
-Run the loop. Confirm it is the **user's** failure, not a nearby one. Capture the symptom.
+Run the loop when available; otherwise use the captured incident symptom. Confirm it is the **user's** failure, not a nearby one. Capture the symptom.
 
-Cut inputs, callers, config, and steps one at a time. Re-run after each cut. Stop when every leftover piece is load-bearing (remove any one and the loop goes green).
+For a replayable loop, cut inputs, callers, config, and steps one at a time. Do not minimize a live production system by disrupting traffic. Re-run after each cut. Stop when every leftover piece is load-bearing (remove any one and the loop goes green).
 
 ## Step 4 — Hypothesise, then probe
 
-Write **3–5** falsifiable hypotheses before testing one:
+Write the smallest useful ranked set of falsifiable hypotheses: one for a direct, evidenced cause; several when the cause is uncertain:
 
 `If <X> is the cause, then <changing Y> will make it disappear / <changing Z> will make it worse.`
 
@@ -73,14 +73,14 @@ If a correct public seam exists, turn the minimised repro into a failing test (`
 
 ## Step 6 — Prove and clean
 
-1. Re-run the original (un-minimised) loop. Expected result.
+1. Re-run the original (un-minimised) loop, or verify the captured incident symptom against fresh production evidence. Report any verification gap; a mitigation alone is not proof of root cause.
 2. Regression test passes, or missing seam is written down.
 3. Grep out every tagged debug log. Delete throwaway harnesses.
 4. Run focused tests and, if cheap, repo **Test**.
 
 ## Done
 
-1. The red-loop command and its last output
+1. The red-loop command and its last output, or incident evidence and its verification limits
 2. Root cause (file/symbol)
 3. Hypotheses discarded
 4. The fix

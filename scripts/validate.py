@@ -3,6 +3,8 @@
 
 from __future__ import annotations
 
+import argparse
+import json
 import re
 import sys
 from pathlib import Path
@@ -24,41 +26,100 @@ HOST_WORDS = re.compile(
 )
 
 
+def parse_string(value: str) -> str:
+    """Read this pack's deliberately small YAML string subset, without dependencies."""
+    if value.startswith('"'):
+        try:
+            parsed = json.loads(value)
+        except ValueError as exc:
+            raise ValueError(f"invalid quoted string: {value!r}") from exc
+        if not isinstance(parsed, str):
+            raise ValueError("expected a string")
+        return parsed
+    if value.startswith("'"):
+        if not re.fullmatch(r"'(?:[^']|'')*'", value):
+            raise ValueError(f"invalid quoted string: {value!r}")
+        return value[1:-1].replace("''", "'")
+    value = re.split(r"\s+#", value, maxsplit=1)[0].rstrip()
+    if not value or value.lower() in {"true", "false", "null", "~", "yes", "no", "on", "off"}:
+        raise ValueError("expected a non-empty string; quote YAML boolean/null values")
+    numeric = r"[-+]?(?:0[xob][0-9a-f_]+|(?:\d[\d_.]*|\.\d+)(?:[eE][-+]?\d+)?|\.inf|\.nan)"
+    if re.fullmatch(numeric, value, re.I) or re.match(r"^\d{4}-\d{2}-\d{2}(?:$|[Tt ])", value):
+        raise ValueError("expected a string; quote numeric/date values")
+    if value[0] in "[]{}#&*!|>%@`" or re.search(r":(?:\s|$)", value) or re.match(r"[-?:](?:\s|$)", value):
+        raise ValueError("unsupported YAML value; use a plain or quoted string")
+    return value
+
+
 def parse_frontmatter(text: str) -> tuple[dict[str, object], str]:
     if not text.startswith("---\n"):
         raise ValueError("SKILL.md must start with YAML frontmatter (---)")
     end = text.find("\n---\n", 4)
     if end == -1:
         raise ValueError("SKILL.md frontmatter is not closed")
-    raw = text[4:end]
-    body = text[end + 5 :]
     data: dict[str, object] = {}
-    current_map: dict[str, str] | None = None
-    map_key: str | None = None
-    for line in raw.splitlines():
-        if current_map is not None and (line.startswith("  ") or line.startswith("\t")):
-            if ":" not in line:
-                raise ValueError(f"invalid metadata line: {line!r}")
-            k, v = line.strip().split(":", 1)
-            current_map[k.strip()] = v.strip().strip('"')
+    metadata: dict[str, str] | None = None
+    for line in text[4:end].splitlines():
+        if not line.strip() or line.lstrip().startswith("#"):
             continue
-        current_map = None
-        map_key = None
-        if not line.strip():
-            continue
-        if ":" not in line:
+        if "\t" in line:
+            raise ValueError("frontmatter indentation must use spaces")
+        nested = line.startswith("  ") and not line.startswith("   ")
+        if line.startswith(" ") and not nested:
+            raise ValueError("metadata entries require exactly two spaces")
+        if nested and metadata is None:
+            raise ValueError("only metadata may contain indented entries")
+        raw = line[2:] if nested else line
+        if ":" not in raw:
             raise ValueError(f"invalid frontmatter line: {line!r}")
-        key, value = line.split(":", 1)
-        key = key.strip()
+        key, value = raw.split(":", 1)
+        if not re.fullmatch(r"[a-zA-Z0-9_-]+", key):
+            raise ValueError(f"invalid frontmatter key: {key!r}")
+        target = metadata if nested else data
+        if key in target:
+            raise ValueError(f"duplicate frontmatter key: {key!r}")
         value = value.strip()
-        if value == "":
-            current_map = {}
-            data[key] = current_map
-            map_key = key
-            continue
-        data[key] = value.strip('"')
-        _ = map_key
-    return data, body
+        if not nested:
+            metadata = None
+        if not nested and key == "metadata":
+            if value and not value.startswith("#"):
+                raise ValueError("metadata must be an indented mapping of strings")
+            metadata = {}
+            data[key] = metadata
+        else:
+            try:
+                target[key] = parse_string(value)
+            except ValueError as exc:
+                raise ValueError(f"{key}: {exc}") from exc
+    if "metadata" in data and not data["metadata"]:
+        raise ValueError("metadata must contain at least one string entry, or be omitted")
+    return data, text[end + 5 :]
+
+
+def validate_resources(path: Path, body: str) -> list[str]:
+    """Check shipped Markdown and concrete local links, not illustrative workspace paths."""
+    errors: list[str] = []
+    documents = [(path, body)]
+    for folder in ("references", "assets"):
+        documents.extend((p, p.read_text(encoding="utf-8")) for p in sorted((path.parent / folder).rglob("*.md")))
+    for document, content in documents:
+        if HOST_WORDS.search(content):
+            errors.append(f"{document}: skill content mentions a host product or host-only tool")
+        # Backticks identify concrete bundled resources; workspace examples are not links.
+        targets = re.findall(r"`([^`\n]+)`", content)
+        targets = [t for t in targets if re.match(r"(?:\.\./)*(?:references|assets|scripts)/", t)
+                   or re.match(r"(?:\.\./)+[a-z][a-z0-9-]*/(?:references|assets)/", t)]
+        # Markdown links in shipped resources are checked even when just 'details.md'.
+        targets.extend(re.findall(r"\[[^]\n]*\]\(([^)\s]+)\)", content))
+        for target in targets:
+            target = target.split("#", 1)[0]
+            if not target or re.match(r"[a-zA-Z][a-zA-Z0-9+.-]*:", target) or target.startswith("/"):
+                continue
+            if any(char in target for char in "<>*|"):
+                continue  # Explicit placeholders/patterns are not concrete resource names.
+            if not (document.parent / target).is_file():
+                errors.append(f"{document}: missing referenced file {target!r}")
+    return errors
 
 
 def validate_skill(path: Path) -> list[str]:
@@ -89,28 +150,35 @@ def validate_skill(path: Path) -> list[str]:
     elif len(desc) > 1024:
         errors.append(f"{path}: description is {len(desc)} chars (max 1024)")
 
-    if "license" in data and not isinstance(data["license"], str):
-        errors.append(f"{path}: license must be a string")
+    for field in ("license", "compatibility"):
+        if field in data and not isinstance(data[field], str):
+            errors.append(f"{path}: {field} must be a string")
 
-    if HOST_WORDS.search(body):
-        errors.append(f"{path}: skill body mentions a host product or host-only tool")
+    errors.extend(validate_resources(path, body))
 
-    lines = text.count("\n") + 1
-    if lines > 500:
+    lines = len(text.splitlines())
+    if lines >= 500:
         errors.append(f"{path}: SKILL.md is {lines} lines (keep under 500)")
 
     return errors
 
 
 def main() -> int:
-    root = Path(__file__).resolve().parent.parent / "skills"
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("pack", nargs="?", type=Path, default=Path(__file__).resolve().parent.parent)
+    args = parser.parse_args()
+    root = args.pack.resolve() / "skills"
     if not root.is_dir():
         print(f"no skills directory at {root}", file=sys.stderr)
         return 1
     errors: list[str] = []
-    skills = sorted(p for p in root.iterdir() if p.is_dir() and (p / "SKILL.md").is_file())
+    folders = sorted(p for p in root.iterdir() if p.is_dir() and not p.name.startswith("."))
+    for folder in folders:
+        if not (folder / "SKILL.md").is_file():
+            errors.append(f"missing {folder / 'SKILL.md'}")
+    skills = [p for p in folders if (p / "SKILL.md").is_file()]
     if not skills:
-        print(f"no SKILL.md files under {root}", file=sys.stderr)
+        print("\n".join(errors + [f"no SKILL.md files under {root}"]), file=sys.stderr)
         return 1
     for skill in skills:
         errors.extend(validate_skill(skill / "SKILL.md"))
@@ -122,7 +190,7 @@ def main() -> int:
         errors.append(f"missing {template}")
     elif not vendored.is_file():
         errors.append(f"missing {vendored} (must match templates/AGENTS.md)")
-    elif template.read_text(encoding="utf-8") != vendored.read_text(encoding="utf-8"):
+    elif template.read_bytes() != vendored.read_bytes():
         errors.append(
             "templates/AGENTS.md and skills/explore-codebase/references/agents-template.md must be identical"
         )
@@ -134,6 +202,9 @@ def main() -> int:
             token = f"`{skill.name}`"
             if token not in readme_text:
                 errors.append(f"README.md does not mention {token}")
+
+    if not readme.is_file():
+        errors.append(f"missing {readme}")
 
     if errors:
         print("\n".join(errors))

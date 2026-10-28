@@ -1,0 +1,25 @@
+{
+  "before": {
+    "head": "eccb516603ff77cbcd366f5fca1be411c7cc1ee6",
+    "status": "",
+    "index": "100644 93bd5f6f2931ecc00e2956b1b054c0fbc06deffa 0\t.gitignore\n100644 1773636016823d7b63fdc3bbbbab2460617a09e6 0\tAGENTS.md\n100644 21da217221b5f374d4b63a72a3e944205e1f747d 0\tREADME.md\n",
+    "files": {
+      ".gitignore": "eab6edb253a9863fa18a1d9c1e7ae00dcac715b436cc1d213abbf7a761bef58c",
+      "AGENTS.md": "c3bcaa3067db642b76bb924b40377fbec2194397b03c5f2e3837cf6c956c4704",
+      "README.md": "fec1fd05a46260f8b192e86c5524903c28d5aa8a3c37ddf757c638fff19ab0fc"
+    }
+  },
+  "after": {
+    "head": "eccb516603ff77cbcd366f5fca1be411c7cc1ee6",
+    "status": " M AGENTS.md\n M README.md\n?? quill.py\n?? test_quill.py\n",
+    "index": "100644 93bd5f6f2931ecc00e2956b1b054c0fbc06deffa 0\t.gitignore\n100644 1773636016823d7b63fdc3bbbbab2460617a09e6 0\tAGENTS.md\n100644 21da217221b5f374d4b63a72a3e944205e1f747d 0\tREADME.md\n",
+    "files": {
+      ".gitignore": "eab6edb253a9863fa18a1d9c1e7ae00dcac715b436cc1d213abbf7a761bef58c",
+      "AGENTS.md": "fdf05dc0c47d07e2460f3a7bee52e7a489e1ddf14c62f4ad6e5c017f49313fdd",
+      "README.md": "746b4460ddf127e7e3168dd283da744b9f6e9c611f279c4d233c7f77d4823c71",
+      "quill.py": "d2adf76f32cb4cfec3bb42b124a8ae80b6412e5591203d667f01b3a6e011eaad",
+      "test_quill.py": "77d4bd4577d332767b09d2bcc551e9b332a6f84c0c55d7c0c277376bee26d89e"
+    }
+  },
+  "independent_assertion": "Original README prefix and instructions outside managed blocks preserved; no commit."
+}

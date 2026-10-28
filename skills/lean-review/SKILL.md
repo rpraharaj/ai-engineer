@@ -16,7 +16,7 @@ Load `engineering-bar` (paths in that skill) and apply **Minimum path** + **Neve
 ## Target
 
 - User said "whole repo", "audit", or "what can we delete from this tree" → scan the tree (skip `node_modules`, `.git`, vendored/build output).
-- Otherwise the current diff (same collection as `review-change`: working tree, or named branch vs its base).
+- Otherwise follow `engineering-bar` **Shared procedures** for scope and evidence, including branch commits and relevant untracked files.
 
 If the target is empty, say so and stop.
 

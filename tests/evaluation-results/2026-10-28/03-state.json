@@ -1,0 +1,27 @@
+{
+  "before": {
+    "head": "0826f6f4c094dcd1cf5472c5fc1c6dc7a9b751e2",
+    "status": "MM other.txt\n M requested.txt\n",
+    "index": "100644 93bd5f6f2931ecc00e2956b1b054c0fbc06deffa 0\t.gitignore\n100644 727fcc7940868f8e126384b7db7c1c2763e7a518 0\tAGENTS.md\n100644 efda46caf34c099357eabc02f330e2e9f8769648 0\tREADME.md\n100644 fc498d4b55197b6bedc15a690d83de61d307e59d 0\tother.txt\n100644 f103e75c49703d4f640c9b4a3fe48cb6385618e2 0\trequested.txt\n",
+    "files": {
+      ".gitignore": "eab6edb253a9863fa18a1d9c1e7ae00dcac715b436cc1d213abbf7a761bef58c",
+      "AGENTS.md": "b471d4bc1056c596d1df36428d3da989ecbd2b063ea6758545060a4a6b234727",
+      "README.md": "3f0a5105203c40918b7a9de4dc627571cb17825286dfd3275e251ec1cfd1a548",
+      "other.txt": "c4825576418c92d99ff4ccdfb298d17d2bf46e187e0a77c4120478794e02640b",
+      "requested.txt": "83f9bc121da68fea24b04892b3a6f4b55a52ce2af200036f9b4c3f8184dec0fd"
+    }
+  },
+  "after": {
+    "head": "66929f9b9c398801599c7808cdc32968ced0c146",
+    "status": "MM other.txt\n",
+    "index": "100644 93bd5f6f2931ecc00e2956b1b054c0fbc06deffa 0\t.gitignore\n100644 727fcc7940868f8e126384b7db7c1c2763e7a518 0\tAGENTS.md\n100644 efda46caf34c099357eabc02f330e2e9f8769648 0\tREADME.md\n100644 fc498d4b55197b6bedc15a690d83de61d307e59d 0\tother.txt\n100644 1688d6f0ff6318499778afadd1ac3dcd90eca9c8 0\trequested.txt\n",
+    "files": {
+      ".gitignore": "eab6edb253a9863fa18a1d9c1e7ae00dcac715b436cc1d213abbf7a761bef58c",
+      "AGENTS.md": "b471d4bc1056c596d1df36428d3da989ecbd2b063ea6758545060a4a6b234727",
+      "README.md": "3f0a5105203c40918b7a9de4dc627571cb17825286dfd3275e251ec1cfd1a548",
+      "other.txt": "c4825576418c92d99ff4ccdfb298d17d2bf46e187e0a77c4120478794e02640b",
+      "requested.txt": "83f9bc121da68fea24b04892b3a6f4b55a52ce2af200036f9b4c3f8184dec0fd"
+    }
+  },
+  "independent_assertion": "Only requested.txt committed; other.txt staged blob and working bytes preserved."
+}

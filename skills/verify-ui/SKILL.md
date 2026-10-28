@@ -15,7 +15,7 @@ Read `AGENTS.md` if present. Load `engineering-bar` (paths in that skill) and ap
 
 ## Collect
 
-Diff vs `HEAD` or the named branch. Inventory routes, screens, components, CSS, and client state this change touches.
+Follow `engineering-bar` **Shared procedures** for scope and evidence, reusing the caller's recorded scope when provided. Inventory routes, screens, components, CSS, and client state this change touches.
 
 If there is no UI in the diff, report **n/a** and stop.
 
@@ -28,7 +28,7 @@ Use the first that exists in this session:
 3. The running app (`Run` in `AGENTS.md`) plus curl/script against the pages
 4. A render or component test this repo already has
 
-If you cannot drive the UI, say **unverified**, list what a human should click, and stop. Do not invent a browser harness.
+Use `engineering-bar` shared evidence rules for what each method can prove. Record a result per applicable flow, state, viewport, and accessibility requirement. HTTP or render checks may supply partial evidence; they cannot substitute for unexercised browser interaction or layout. If an applicable requirement cannot be exercised, overall status is **unverified** unless another check has failed. List the exact remaining steps; do not invent a browser harness.
 
 ## Exercise
 

@@ -20,6 +20,7 @@ If the `ready-to-merge` skill is installed, run it before calling a change done.
 - **Install:** (unknown)
 - **Run:** (unknown)
 - **Test:** (unknown)
+- **Format:** (unknown)
 - **Lint:** (unknown)
 - **Typecheck:** (unknown)
 - **Build:** (unknown)

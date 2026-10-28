@@ -23,6 +23,7 @@ This repository is **ai-engineer**, a portable skill pack (home: https://rajeshp
 
 ```bash
 python3 scripts/validate.py
+python3 -m unittest discover -s tests -v
 ```
 
 ## Install locally

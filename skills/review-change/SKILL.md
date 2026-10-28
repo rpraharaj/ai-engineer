@@ -15,11 +15,7 @@ Named `review-change` so it does not replace a host's own review command.
 
 ## Target
 
-Pick the first match:
-
-1. User named a PR/MR number or URL → host CLI diff if `gh` or `glab` works; else ask for a branch
-2. User named a branch → `git diff <merge-base>..<branch>` vs default base (`main` / `master` / `trunk` / remote `HEAD`)
-3. Otherwise local: staged + unstaged + untracked (`git diff HEAD`, then untracked files)
+Load `engineering-bar` and follow its **Shared procedures** for change scope and evidence. Honor an explicit PR/MR or branch target; otherwise include branch commits and relevant local edits, including untracked files. If remote access is unavailable, request a local revision or diff. Preserve the same scope in specialist checks.
 
 If the diff is empty, say so and stop. If it is huge (multi-megabyte or hundreds of files), summarize by file and ask what to narrow; do not pretend you reviewed it all.
 

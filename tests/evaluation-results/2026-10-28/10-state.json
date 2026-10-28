@@ -1,0 +1,29 @@
+{
+  "before": {
+    "head": "2a03c6306b333f98e6598f2939e5786e6640ca91",
+    "status": "",
+    "index": "100644 93bd5f6f2931ecc00e2956b1b054c0fbc06deffa 0\t.gitignore\n100644 727fcc7940868f8e126384b7db7c1c2763e7a518 0\tAGENTS.md\n100644 efda46caf34c099357eabc02f330e2e9f8769648 0\tREADME.md\n100644 9e442e5cfd4e3dbf71897fedae490e5c5dcef793 0\tapp.py\n100644 31fbe772cb046dc751744d80249cbb6279c89f0a 0\trelease.txt\n100644 e7338f78c921f0bc7baa5707fc5aa01e7537d30c 0\ttests/test_app.py\n",
+    "files": {
+      ".gitignore": "eab6edb253a9863fa18a1d9c1e7ae00dcac715b436cc1d213abbf7a761bef58c",
+      "AGENTS.md": "b471d4bc1056c596d1df36428d3da989ecbd2b063ea6758545060a4a6b234727",
+      "README.md": "3f0a5105203c40918b7a9de4dc627571cb17825286dfd3275e251ec1cfd1a548",
+      "app.py": "51947217673b8ca941dace727e698f6bdcbca94a239ae897d992c5877e0b3ecd",
+      "release.txt": "d16743f3c5a6758cbbfc06688dbcfdf87d8ed195057c4f58743191fea9e86637",
+      "tests/test_app.py": "de41c4ee04f8dc6a8e896f9352cb8c64dec6ca678c195fd6124912dbd267fe3f"
+    }
+  },
+  "after": {
+    "head": "2a03c6306b333f98e6598f2939e5786e6640ca91",
+    "status": "",
+    "index": "100644 93bd5f6f2931ecc00e2956b1b054c0fbc06deffa 0\t.gitignore\n100644 727fcc7940868f8e126384b7db7c1c2763e7a518 0\tAGENTS.md\n100644 efda46caf34c099357eabc02f330e2e9f8769648 0\tREADME.md\n100644 9e442e5cfd4e3dbf71897fedae490e5c5dcef793 0\tapp.py\n100644 31fbe772cb046dc751744d80249cbb6279c89f0a 0\trelease.txt\n100644 e7338f78c921f0bc7baa5707fc5aa01e7537d30c 0\ttests/test_app.py\n",
+    "files": {
+      ".gitignore": "eab6edb253a9863fa18a1d9c1e7ae00dcac715b436cc1d213abbf7a761bef58c",
+      "AGENTS.md": "b471d4bc1056c596d1df36428d3da989ecbd2b063ea6758545060a4a6b234727",
+      "README.md": "3f0a5105203c40918b7a9de4dc627571cb17825286dfd3275e251ec1cfd1a548",
+      "app.py": "51947217673b8ca941dace727e698f6bdcbca94a239ae897d992c5877e0b3ecd",
+      "release.txt": "d16743f3c5a6758cbbfc06688dbcfdf87d8ed195057c4f58743191fea9e86637",
+      "tests/test_app.py": "de41c4ee04f8dc6a8e896f9352cb8c64dec6ca678c195fd6124912dbd267fe3f"
+    }
+  },
+  "independent_assertion": "HEAD, index entries, and all product file hashes unchanged."
+}

@@ -43,6 +43,8 @@ If the ask is a PRD, architecture doc, technical design, or task breakdown, stop
 
 If **kind is change**, the work has several slices or open product/system decisions, and the user asked to think it through (not "just scope the first slice"), prefer `write-prd` (why still open) or `write-design` (how still open) over a one-shot shape. Tiny one-file changes still skip that and stay here.
 
+Carry forward agreed upstream decisions and acceptance checks by reference. Add only missing detail for this deliverable; do not regenerate or seek approval again for settled decisions. Existing authorization to implement continues to apply once blocking decisions are resolved.
+
 ## Ask only when blocked
 
 Ask the user at most a few **blocking** questions (missing product behavior, missing environment, contradicting requirements). Do not ask questions you can answer from the repo. Non-blocking questions go in the output and do not stop you from finishing the shape.
@@ -59,7 +61,7 @@ Map a **design tree**. Each round, ask the whole **frontier** (questions whose p
 Recommended: <your answer>
 ```
 
-A question that depends on an unanswered Q in this round belongs in a later round. Stop the pass when the frontier is empty, then write the shaped-work document from what you settled. Do not implement until the user confirms the shape.
+A question that depends on an unanswered Q in this round belongs in a later round. Stop the pass when the frontier is empty, then write the shaped-work document from what you settled. Confirm unresolved product decisions before implementation. Do not demand a second approval when the user already authorized implementation and the resulting shape stays within that scope.
 
 Defects, incidents, and tiny one-file changes skip this pass.
 
@@ -124,4 +126,4 @@ Save it only if the user asked for a file, or if that is this repo's habit (look
 
 ## Done
 
-Show the shaped work. If there are blocking questions, stop and wait. Otherwise name the next skill and stop. Do not implement in the same turn unless the user explicitly said to shape **and** implement and the first slice is already fully specified.
+Show the shaped work. If there are blocking questions, stop and wait. Otherwise name the next skill. Continue into implementation only when the user has authorized it, blocking decisions are resolved, and the first slice is fully specified. A request only to shape the work ends here.
